@@ -30,8 +30,11 @@ This utility dumps the TAG memory and formats its output into a decimal code, wh
 **ADC parameters:**
 
 The TAG uses an external 10-bit ADC (MCP3008) with a fixed reference voltage of 1.8 volts. 
-Data sampling occurs on the 7th channel of the ADC and the calculated voltage is calculated according to the following formula:
-(adc_val * adc_vref) / adc_resolution - adc _vref = 1.8; adc_resolution = 1024 
+Data sampling occurs on the 7th channel of the ADC and the voltage level is calculated according to the following formula:
+
+(adc_val * adc_vref) / adc_resolution 
+- adc _vref = 1.8; 
+- adc_resolution = 1024 
 
 **WIRING DIAGRAM:**
 
