@@ -74,7 +74,6 @@ def nfc_read():
 
                 except nfc.PN532Error as e:
                     print(colored(e.errmsg,"red"))
-                    append_to_log("ERROR: ", e.errmsg, str(datetime.datetime.now()))
                     log_file.close()
                     GPIO.cleanup()
                     sys.exit(e)
