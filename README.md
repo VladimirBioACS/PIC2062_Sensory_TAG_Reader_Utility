@@ -35,34 +35,34 @@ Data sampling occurs on the 7th channel of the ADC and the calculated voltage is
 
 **WIRING DIAGRAM:**
 
-                                    -----------------------            -------------------------
-                                    |                     |            |                       |
-                                    |                  TxD| ---------> |RxD                    |
-                                    | RaspberryPi 3B+  RxD| <--------- |RxD  PN532 NFC Reader  |
-                                    |                  GND| ---------- |GND                    |
-                                    |                  3V3| ---------> |3V3                    |
-                                    |                     |            |                       |
-                                    -----------------------            -------------------------
+                       -----------------------            -------------------------
+                       |                     |            |                       |
+                       |                  TxD| ---------> |RxD                    |
+                       | RaspberryPi 3B+  RxD| <--------- |RxD  PN532 NFC Reader  |
+                       |                  GND| ---------- |GND                    |
+                       |                  3V3| ---------> |3V3                    |
+                       |                     |            |                       |
+                       -----------------------            -------------------------
 
 **PN532 INTERFACE SWITCH MODE:**
 
-                                                             -------
-                                                       SCK   | OFF |
-                                                       MISO  | OFF |  
-                                                       MOSI  | OFF |  SPI
-                                                       NSS   | OFF |  
-                                                       SCL   | OFF |  I2C
-                                                       SDA   | OFF |
-                                                       RX    | ON  |  UART
-                                                       TX    | ON  |
-                                                             -------
+                         -------
+                   SCK   | OFF |
+                   MISO  | OFF |  
+                   MOSI  | OFF |  SPI
+                   NSS   | OFF |  
+                   SCL   | OFF |  I2C
+                   SDA   | OFF |
+                   RX    | ON  |  UART
+                   TX    | ON  |
+                         -------
 
 **PN532 JUMPERS MODE:**
 
-                                       -----------------      ---------------
-                                       |bus |  H  | I0 |      |Signal| Short|
-                                       -----------------      ---------------
-                                       |UART|  L  | H  |      |RSTPDN| D16  |
-                                       -----------------      ---------------
-                                                              |INT0  | D20  |
-                                                              ---------------
+                  -----------------      ---------------
+                  |bus |  H  | I0 |      |Signal| Short|
+                  -----------------      ---------------
+                  |UART|  L  | H  |      |RSTPDN| D16  |
+                  -----------------      ---------------
+                                         |INT0  | D20  |
+                                         ---------------
