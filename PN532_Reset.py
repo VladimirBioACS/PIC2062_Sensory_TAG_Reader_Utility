@@ -4,7 +4,6 @@ import RPi.GPIO as GPIO     # RaspberryPi 3B+ GPIO interfacing library
 from pn532 import *         # PN532 driver
 from time import sleep
 
-rst_pin = 20
 
 GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
