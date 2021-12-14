@@ -15,7 +15,7 @@ import os
 import sys
 
 # Config
-nfc_read_delay = 1
+nfc_read_delay = 0.1
 
 # ADC parameters
 adc_resolution = 1023
@@ -52,14 +52,15 @@ def nfc_read():
             tag_UID = [hex(i) for i in uid]
             print(colored('Found TAG with UID:'+ str(tag_UID) + "\n", "green"))
 
-            while(uid is not None):
-
+            while True:
+                uid = pn532.read_passive_target(timeout=nfc_read_delay)
+                
                 first_block_sample_store = 0
                 second_block_sample_store = 0
 
                 first_block_sample_store = ''.join(['%02x' % x for x in pn532.ntag2xx_read_block(6)])
                 second_block_sample_store  = ''.join(['%02x' % x for x in pn532.ntag2xx_read_block(7)])
-                    
+                        
                 block = first_block_sample_store + second_block_sample_store
 
                 try:
@@ -78,13 +79,14 @@ def nfc_read():
                     GPIO.cleanup()
                     sys.exit(e)
                 
-            sleep(0.1)
+        sleep(0.1)
 
     except Exception as e:
         print(colored(e,"red"))
 
 # Main function
 if __name__ == "__main__":
+
     os.system("clear")
     os.system("figlet Polaric Semi")
 
